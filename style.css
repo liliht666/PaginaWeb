@@ -10,7 +10,7 @@ body {
     margin: 0;
     padding: 0;
     background-color: var(--negro);
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     color: var(--blanco);
 }
 
@@ -21,13 +21,14 @@ body {
 
 .sidebar {
     width: 250px;
-    background-color: var(--rojo-oscuro);
+    background-color: var(--negro);
     height: 100vh;
     padding: 25px;
     box-sizing: border-box;
     position: sticky;
     top: 0;
 }
+
 
 .sidebar-title {
     font-size: 28px;
@@ -120,7 +121,7 @@ body {
     width: 100%;
     padding: 12px;
     text-align: center;
-    background: linear-gradient(to top, rgba(163, 0, 36, 0.85), rgba(0, 0, 0, 0.3));
+    background: linear-gradient(to top, rgba(109, 105, 106, 0.85), rgba(0, 0, 0, 0.3));
     opacity: 0;
     transition: 0.3s;
     color: var(--blanco);
