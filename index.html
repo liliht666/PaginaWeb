@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -9,7 +9,14 @@
 </head>
 <body>
 
-    <div class="layout">
+    <!-- MENÚ LATERAL -->
+    <aside class="sidebar">
+        <h2>Menú</h2>
+        <button onclick="mostrarGeneros()">Géneros</button>
+        <button onclick="mostrarArtistas()">Autores</button>
+        <button>Inicio</button>
+        <button id="perfil-btn" onclick="mostrarLogin()">Mi Perfil</button>
+    </aside>
 
         <!-- Barra lateral -->
         <aside class="sidebar">
@@ -19,6 +26,22 @@
                 <p class="sidebar-section">Descubrir</p>
                 <button class="side-btn" id="btn-inicio">Inicio</button>
                 <button class="side-btn" id="btn-buscar">Buscar</button>
+    <!-- BARRA SUPERIOR -->
+    <header class="topbar">
+        <input type="text" placeholder="Buscar..." class="buscar">
+        <button onclick="mostrarLogin()">Perfil</button>
+        <button>Ajustes</button>
+        <button>Avisos</button>
+    </header>
+
+    <!-- CONTENIDO PRINCIPAL -->
+    <main class="contenido">
+        <h1 class="titulo">My Art</h1>
+
+                <p class="sidebar-section">Descubrir</p>
+                <button class="side-btn" id="btn-inicio">Inicio</button>
+                <button class="side-btn" id="btn-buscar">Buscar</button>
+            
 
                 <p class="sidebar-section">Configuración</p>
                 <button class="side-btn" id="btn-perfil">Perfil</button>
@@ -26,11 +49,64 @@
                 <button class="side-btn hidden" id="btn-signup">Sign Up</button>
             </nav>
         </aside>
+<!-- PERFIL -->
+<section id="perfil-section" class="hidden">
+    <h2 class="section-title">Mi Perfil</h2>
+
+    <!-- CONTENEDOR LOGIN -->
+    <div id="login-container">
+
+        <h3>Iniciar Sesión</h3>
+
+        <input type="email" id="login-email" placeholder="Correo electrónico">
+        <input type="password" id="login-password" placeholder="Contraseña">
+
+        <button id="login-btn" class="top-btn">Entrar</button>
+
+        <div class="separator">o</div>
+
+        <!-- GOOGLE BUTTON -->
+        <div id="google-login"></div>
+
+        <p class="change-form">
+            ¿No tienes cuenta?
+            <span id="go-signup">Crear una cuenta</span>
+        </p>
+    </div>
+
+    <!-- CONTENEDOR SIGN UP -->
+    <div id="signup-container" class="hidden">
+
+        <h3>Crear Cuenta</h3>
+
+        <input type="text" id="signup-name" placeholder="Nombre">
+        <input type="email" id="signup-email" placeholder="Correo electrónico">
+        <input type="password" id="signup-password" placeholder="Contraseña">
+
+        <button id="signup-btn" class="top-btn">Registrar</button>
+
+        <p class="change-form">
+            ¿Ya tienes cuenta?
+            <span id="go-login">Inicia sesión</span>
+        </p>
+    </div>
+
+    <button id="volver-inicio2" class="volver-btn">Volver</button>
+</section>
+
+<script src="https://accounts.google.com/gsi/client" async defer></script>
 
         <!-- Contenido principal -->
         <main class="content">
             <section id="inicio-section">
                 <h1 class="section-title">Géneros Artísticos</h1>
+
+    
+
+            
+            <section id="inicio-section">
+
+                <h1 class="section-title">Géneros</h1>
 
                 <div class="genres-grid">
 
@@ -56,7 +132,23 @@
 
                 </div>
 
+
                 <h1 class="section-title">Autores</h1>
+
+        <!-- GRID DE GÉNEROS -->
+        <section id="grid-generos" class="grid"></section>
+
+        <!-- GRID DE ARTISTAS -->
+        <section id="grid-artistas" class="grid"></section>
+
+        <!-- MODAL DE LOGIN / SIGNUP -->
+        <div id="auth-modal" class="auth-modal">
+            <div class="auth-modal-content">
+                <span id="close-modal" class="close">&times;</span>
+                <h2>Iniciar sesión / Registrarse</h2>
+                
+
+                <h1 class="section-title">Artistas</h1>
 
                 <div class="authors-grid">
                     <!-- Agregar autores aquí -->
@@ -75,7 +167,8 @@
 
     </div>
 
-    <!-- Footer -->
+
+    
     <footer class="footer">
         <div class="footer-container">
             <div>
@@ -86,37 +179,50 @@
                     <a href="#" class="social-circle">X</a>
                     <a href="#" class="social-circle">IG</a>
                     <a href="#" class="social-circle">YT</a>
+
+                <!-- Login form -->
+                <div id="login-form" class="auth-form">
+                    <input type="email" id="login-email" placeholder="Correo electrónico" required />
+                    <input type="password" id="login-password" placeholder="Contraseña" required />
+                    <button id="login-btn" onclick="login()">Iniciar sesión</button>
+                    <p>No tienes cuenta? <a href="javascript:void(0);" onclick="mostrarSignup()">Registrarse</a></p>
+                    <button id="google-login-btn" onclick="loginWithGoogle()">Iniciar sesión con Google</button>
+                </div>
+
+                <!-- Sign-up form -->
+                <div id="signup-form" class="auth-form" style="display: none;">
+                    <input type="text" id="signup-firstname" placeholder="Nombre" required />
+                    <input type="text" id="signup-lastname" placeholder="Apellido" required />
+                    <input type="email" id="signup-email" placeholder="Correo electrónico" required />
+                    <input type="number" id="signup-birthyear" placeholder="Año de nacimiento" required />
+                    <input type="password" id="signup-password" placeholder="Contraseña" required />
+                    <button id="signup-btn" onclick="signup()">Registrarse</button>
+                    <p>¿Ya tienes cuenta? <a href="javascript:void(0);" onclick="mostrarLogin()">Iniciar sesión</a></p>
+
                 </div>
             </div>
-
-            <div>
-                <h3>Secciones</h3>
-                <a href="#">Realismo</a>
-                <a href="#">Gótico</a>
-                <a href="#">Erótico</a>
-                <a href="#">Renacimiento</a>
-                <a href="#">Grotesco</a>
-                <a href="#">Surrealismo</a>
-            </div>
-
-            <div>
-                <h3>Contacto</h3>
-                <a href="#">Soporte</a>
-                <a href="#">Consultas</a>
-            </div>
-
-            <div>
-                <h3>Legales</h3>
-                <a href="#">Términos</a>
-                <a href="#">Privacidad</a>
-            </div>
         </div>
+    </main>
 
-        <div class="footer-bottom">
-            <p>© 2025 My Art. Todos los derechos reservados.</p>
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="footer-section">
+            <h3>Contacto</h3>
+            <p>Email: contacto@myart.com</p>
+            <p>Teléfono: 123-456-7890</p>
+        </div>
+        <div class="footer-section">
+            <h3>Licencia</h3>
+            <p>Este sitio web es para fines educativos y está bajo una licencia Creative Commons.</p>
+        </div>
+        <div class="footer-section">
+            <h3>Términos y Condiciones</h3>
+            <p><a href="#">Ver términos y condiciones</a></p>
         </div>
     </footer>
 
     <script src="script.js"></script>
+
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
 </body>
 </html>

@@ -1,5 +1,8 @@
 const btnInicio = document.getElementById("btn-inicio");
 const btnBuscar = document.getElementById("btn-buscar");
+const btnPerfil = document.getElementById("btn-perfil");
+const btnLogin = document.getElementById("btn-login");
+const btnSignup = document.getElementById("btn-signup");
 const inicioSection = document.getElementById("inicio-section");
 const buscarSection = document.getElementById("buscar-section");
 const volverInicio = document.getElementById("volver-inicio");
@@ -7,10 +10,6 @@ const searchBar = document.getElementById("searchBar");
 const resultsGrid = document.querySelector(".results-grid");
 const noResults = document.getElementById("no-results");
 const items = document.querySelectorAll(".item");
-
-const btnPerfil = document.getElementById("btn-perfil");
-const btnLogin = document.getElementById("btn-login");
-const btnSignup = document.getElementById("btn-signup");
 
 btnInicio.addEventListener("click", () => {
     inicioSection.classList.remove("hidden");
@@ -21,7 +20,7 @@ btnInicio.addEventListener("click", () => {
 btnBuscar.addEventListener("click", () => {
     inicioSection.classList.add("hidden");
     buscarSection.classList.remove("hidden");
-    populateResults(); 
+    populateResults();
 });
 
 volverInicio.addEventListener("click", () => {
@@ -68,8 +67,14 @@ searchBar.addEventListener("keyup", () => {
     }
 });
 
+items.forEach(item => {
+    item.addEventListener("click", () => {
+        const link = item.getAttribute("data-link");
+        if (link) window.open(link, "_blank");
+    });
+});
+
 btnPerfil.addEventListener("click", () => {
-    // Mostrar/ocultar las opciones de Log In y Sign Up
     btnLogin.classList.toggle("hidden");
     btnSignup.classList.toggle("hidden");
 });
