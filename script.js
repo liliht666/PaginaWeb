@@ -70,3 +70,85 @@ items.forEach(item => {
         if (link) window.open(link, "_blank");
     });
 });
+// Elementos Perfil
+const btnPerfil = document.getElementById("btn-perfil");
+const perfilSection = document.getElementById("perfil-section");
+
+const loginContainer = document.getElementById("login-container");
+const signupContainer = document.getElementById("signup-container");
+
+const goSignup = document.getElementById("go-signup");
+const goLogin = document.getElementById("go-login");
+
+const volverInicio2 = document.getElementById("volver-inicio2");
+
+// Mostrar perfil
+btnPerfil.addEventListener("click", () => {
+    inicioSection.classList.add("hidden");
+    buscarSection.classList.add("hidden");
+    perfilSection.classList.remove("hidden");
+});
+
+// Volver
+volverInicio2.addEventListener("click", () => {
+    perfilSection.classList.add("hidden");
+    inicioSection.classList.remove("hidden");
+});
+
+// Cambiar entre LOGIN ↔ SIGNUP
+goSignup.addEventListener("click", () => {
+    loginContainer.classList.add("hidden");
+    signupContainer.classList.remove("hidden");
+});
+
+goLogin.addEventListener("click", () => {
+    signupContainer.classList.add("hidden");
+    loginContainer.classList.remove("hidden");
+});
+
+// LOGIN (simulación simple)
+document.getElementById("login-btn").addEventListener("click", () => {
+    const email = document.getElementById("login-email").value;
+    const pass = document.getElementById("login-password").value;
+
+    if (email === "" || pass === "") {
+        alert("Completa todos los campos.");
+        return;
+    }
+
+    alert("Sesión iniciada como: " + email);
+});
+
+// SIGNUP (simulación simple)
+document.getElementById("signup-btn").addEventListener("click", () => {
+    const name = document.getElementById("signup-name").value;
+    const email = document.getElementById("signup-email").value;
+    const pass = document.getElementById("signup-password").value;
+
+    if (name === "" || email === "" || pass === "") {
+        alert("Completa todos los campos.");
+        return;
+    }
+
+    alert("Cuenta creada para: " + name);
+});
+// GOOGLE LOGIN
+window.onload = function () {
+    google.accounts.id.initialize({
+        client_id: "TU_CLIENT_ID_AQUI",
+        callback: handleGoogleLogin
+    });
+
+    google.accounts.id.renderButton(
+        document.getElementById("google-login"),
+        { theme: "outline", size: "large" }
+    );
+};
+
+function handleGoogleLogin(response) {
+    const data = JSON.parse(atob(response.credential.split('.')[1]));
+    const nombre = data.name;
+    const email = data.email;
+
+    alert("Sesión iniciada con Google:\n" + nombre + "\n" + email);
+}

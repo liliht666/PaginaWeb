@@ -20,29 +20,68 @@
                 <p class="sidebar-section">Descubrir</p>
                 <button class="side-btn" id="btn-inicio">Inicio</button>
                 <button class="side-btn" id="btn-buscar">Buscar</button>
-                <button class="side-btn">Mi Arte</button>
+            
 
                 <p class="sidebar-section">Configuración</p>
                 <button class="side-btn">Perfil</button>
             </nav>
         </aside>
+<!-- PERFIL -->
+<section id="perfil-section" class="hidden">
+    <h2 class="section-title">Mi Perfil</h2>
+
+    <!-- CONTENEDOR LOGIN -->
+    <div id="login-container">
+
+        <h3>Iniciar Sesión</h3>
+
+        <input type="email" id="login-email" placeholder="Correo electrónico">
+        <input type="password" id="login-password" placeholder="Contraseña">
+
+        <button id="login-btn" class="top-btn">Entrar</button>
+
+        <div class="separator">o</div>
+
+        <!-- GOOGLE BUTTON -->
+        <div id="google-login"></div>
+
+        <p class="change-form">
+            ¿No tienes cuenta?
+            <span id="go-signup">Crear una cuenta</span>
+        </p>
+    </div>
+
+    <!-- CONTENEDOR SIGN UP -->
+    <div id="signup-container" class="hidden">
+
+        <h3>Crear Cuenta</h3>
+
+        <input type="text" id="signup-name" placeholder="Nombre">
+        <input type="email" id="signup-email" placeholder="Correo electrónico">
+        <input type="password" id="signup-password" placeholder="Contraseña">
+
+        <button id="signup-btn" class="top-btn">Registrar</button>
+
+        <p class="change-form">
+            ¿Ya tienes cuenta?
+            <span id="go-login">Inicia sesión</span>
+        </p>
+    </div>
+
+    <button id="volver-inicio2" class="volver-btn">Volver</button>
+</section>
+
+<script src="https://accounts.google.com/gsi/client" async defer></script>
 
         
         <main class="content">
 
-            
-            <header class="top-bar">
-                <div class="top-left">
-                    <button class="top-btn">Nuevo</button>
-                    <button class="top-btn">Crear</button>
-                    <button class="top-btn">Galería</button>
-                </div>
-            </header>
+    
 
             
             <section id="inicio-section">
 
-                <h1 class="section-title">Géneros Artísticos</h1>
+                <h1 class="section-title">Géneros</h1>
 
                 <div class="genres-grid">
 
@@ -80,7 +119,7 @@
                 </div>
 
                 
-                <h1 class="section-title">Autores</h1>
+                <h1 class="section-title">Artistas</h1>
 
                 <div class="authors-grid">
 
@@ -139,6 +178,7 @@
         </main>
 
     </div>
+
 
     
     <footer class="footer">
