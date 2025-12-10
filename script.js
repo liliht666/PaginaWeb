@@ -8,6 +8,10 @@ const resultsGrid = document.querySelector(".results-grid");
 const noResults = document.getElementById("no-results");
 const items = document.querySelectorAll(".item");
 
+const btnPerfil = document.getElementById("btn-perfil");
+const btnLogin = document.getElementById("btn-login");
+const btnSignup = document.getElementById("btn-signup");
+
 btnInicio.addEventListener("click", () => {
     inicioSection.classList.remove("hidden");
     buscarSection.classList.add("hidden");
@@ -64,9 +68,8 @@ searchBar.addEventListener("keyup", () => {
     }
 });
 
-items.forEach(item => {
-    item.addEventListener("click", () => {
-        const link = item.getAttribute("data-link");
-        if (link) window.open(link, "_blank");
-    });
+btnPerfil.addEventListener("click", () => {
+    // Mostrar/ocultar las opciones de Log In y Sign Up
+    btnLogin.classList.toggle("hidden");
+    btnSignup.classList.toggle("hidden");
 });
