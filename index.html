@@ -24,6 +24,9 @@
                 <button class="side-btn" id="btn-perfil">Perfil</button>
                 <button class="side-btn hidden" id="btn-login">Log In</button>
                 <button class="side-btn hidden" id="btn-signup">Sign Up</button>
+
+                <!-- Botón de búsqueda -->
+                <input type="text" id="searchBar" placeholder="Buscar géneros o autores...">
             </nav>
         </aside>
 
@@ -33,13 +36,11 @@
                 <h1 class="section-title">Géneros Artísticos</h1>
 
                 <div class="genres-grid">
-
-                    <!-- Géneros y autores -->
+                    <!-- Géneros Artísticos -->
                     <div class="item" data-name="Realismo" data-type="genero" data-link="https://www.pinterest.com/search/pins/?q=realismo" data-artist="Edward Hopper" data-genre="Pintura Realista">
                         <img src="https://i.pinimg.com/736x/40/23/e8/4023e8ee1acb614be84d9668620a87ff.jpg" alt="Realismo">
                         <span class="overlay">
                             <span class="overlay-title">Realismo</span>
-                            <span class="overlay-artist">Autor: Edward Hopper</span>
                             <span class="overlay-genre">Género: Pintura Realista</span>
                         </span>
                     </div>
@@ -48,7 +49,6 @@
                         <img src="https://i.pinimg.com/736x/4d/93/7b/4d937b924fd240ada8e5bd6d7f93b28d.jpg" alt="Gótico">
                         <span class="overlay">
                             <span class="overlay-title">Gótico</span>
-                            <span class="overlay-artist">Autor: Caspar David Friedrich</span>
                             <span class="overlay-genre">Género: Pintura Gótica</span>
                         </span>
                     </div>
@@ -57,7 +57,6 @@
                         <img src="https://i.pinimg.com/736x/b0/2d/18/b02d187ff98c0e50ffc2d2750014f357.jpg" alt="Erótico">
                         <span class="overlay">
                             <span class="overlay-title">Erótico</span>
-                            <span class="overlay-artist">Autor: Egon Schiele</span>
                             <span class="overlay-genre">Género: Arte Erótico</span>
                         </span>
                     </div>
@@ -66,7 +65,6 @@
                         <img src="https://i.pinimg.com/736x/4c/ec/f7/4cecf73c876af31dfa603d43d3a52034.jpg" alt="Renacimiento">
                         <span class="overlay">
                             <span class="overlay-title">Renacimiento</span>
-                            <span class="overlay-artist">Autor: Sandro Botticelli</span>
                             <span class="overlay-genre">Género: Pintura Renacentista</span>
                         </span>
                     </div>
@@ -75,7 +73,6 @@
                         <img src="https://i.pinimg.com/736x/a7/02/43/a70243c38de9c0335ad79154669d7195.jpg" alt="Grotesco">
                         <span class="overlay">
                             <span class="overlay-title">Grotesco</span>
-                            <span class="overlay-artist">Autor: Hieronymus Bosch</span>
                             <span class="overlay-genre">Género: Arte Grotesco</span>
                         </span>
                     </div>
@@ -84,73 +81,106 @@
                         <img src="https://i.pinimg.com/1200x/cf/87/9b/cf879b36b82d5c2de53fef29808aa53e.jpg" alt="Surrealismo">
                         <span class="overlay">
                             <span class="overlay-title">Surrealismo</span>
-                            <span class="overlay-artist">Autor: Salvador Dalí</span>
                             <span class="overlay-genre">Género: Arte Surrealista</span>
                         </span>
                     </div>
 
-                    <!-- Otros géneros y autores -->
-                    <div class="item" data-name="Impresionismo" data-type="genero" data-link="https://www.pinterest.com/search/pins/?q=impresionismo" data-artist="Claude Monet" data-genre="Pintura Impresionista">
-                        <img src="https://i.pinimg.com/736x/1f/ba/3b/1fba3b1fcb1e0598c3f5d69bb493af6e.jpg" alt="Impresionismo">
-                        <span class="overlay">
-                            <span class="overlay-title">Impresionismo</span>
-                            <span class="overlay-artist">Autor: Claude Monet</span>
-                            <span class="overlay-genre">Género: Pintura Impresionista</span>
-                        </span>
+                </div>
+
+                <h1 class="section-title">Autores</h1>
+
+                <div class="authors-grid">
+
+                    <!-- Autores -->
+                    <div class="item" data-name="Edward Hopper" data-type="autor" data-link="https://es.wikipedia.org/wiki/Edward_Hopper">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSFdJAdMQfgffW33Op0MSr5szMDtQm7-BiPCQ&s" alt="Edward Hopper">
+                        <span class="overlay">Edward Hopper</span>
                     </div>
 
-                    <div class="item" data-name="Cubismo" data-type="genero" data-link="https://www.pinterest.com/search/pins/?q=cubismo" data-artist="Pablo Picasso" data-genre="Pintura Cubista">
-                        <img src="https://i.pinimg.com/736x/56/58/29/565829c0f15e925eaebcf40ea3da4311.jpg" alt="Cubismo">
-                        <span class="overlay">
-                            <span class="overlay-title">Cubismo</span>
-                            <span class="overlay-artist">Autor: Pablo Picasso</span>
-                            <span class="overlay-genre">Género: Pintura Cubista</span>
-                        </span>
+                    <div class="item" data-name="Caspar David Friedrich" data-type="autor" data-link="https://es.wikipedia.org/wiki/Caspar_David_Friedrich">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSqblfEf5hBmrvIXORwybGeV_vvkdMsCN5w_Q&s" alt="Caspar David Friedrich">
+                        <span class="overlay">Caspar David Friedrich</span>
                     </div>
 
-                    <div class="item" data-name="Expresionismo" data-type="genero" data-link="https://www.pinterest.com/search/pins/?q=expresionismo" data-artist="Edvard Munch" data-genre="Arte Expresionista">
-                        <img src="https://i.pinimg.com/736x/8b/5a/1f/8b5a1f6e4d3990d357bcf4f0d6c602b7.jpg" alt="Expresionismo">
-                        <span class="overlay">
-                            <span class="overlay-title">Expresionismo</span>
-                            <span class="overlay-artist">Autor: Edvard Munch</span>
-                            <span class="overlay-genre">Género: Arte Expresionista</span>
-                        </span>
+                    <div class="item" data-name="Egon Schiele" data-type="autor" data-link="https://es.wikipedia.org/wiki/Egon_Schiele">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a8/Egon-schiele.jpg/250px-Egon-schiele.jpg" alt="Egon Schiele">
+                        <span class="overlay">Egon Schiele</span>
                     </div>
 
-                    <div class="item" data-name="Art Nouveau" data-type="genero" data-link="https://www.pinterest.com/search/pins/?q=art%20nouveau" data-artist="Alphonse Mucha" data-genre="Arte Nouveau">
-                        <img src="https://i.pinimg.com/736x/66/84/a2/6684a23c9d5f02d43d6e400bfcdecb35.jpg" alt="Art Nouveau">
-                        <span class="overlay">
-                            <span class="overlay-title">Art Nouveau</span>
-                            <span class="overlay-artist">Autor: Alphonse Mucha</span>
-                            <span class="overlay-genre">Género: Arte Nouveau</span>
-                        </span>
+                    <div class="item" data-name="Sandro Botticelli" data-type="autor" data-link="https://es.wikipedia.org/wiki/Sandro_Botticelli">
+                        <img src="https://www.reprodart.com/kunst/sandro_botticelli/thm_5781000_v1.jpg" alt="Sandro Botticelli">
+                        <span class="overlay">Sandro Botticelli</span>
                     </div>
 
-                    <div class="item" data-name="Futurismo" data-type="genero" data-link="https://www.pinterest.com/search/pins/?q=futurismo" data-artist="Giacomo Balla" data-genre="Arte Futurista">
-                        <img src="https://i.pinimg.com/736x/66/84/a2/6684a23c9d5f02d43d6e400bfcdecb35.jpg" alt="Futurismo">
-                        <span class="overlay">
-                            <span class="overlay-title">Futurismo</span>
-                            <span class="overlay-artist">Autor: Giacomo Balla</span>
-                            <span class="overlay-genre">Género: Arte Futurista</span>
-                        </span>
+                    <div class="item" data-name="Hieronymus Bosch" data-type="autor" data-link="https://es.wikipedia.org/wiki/El_Bosco">
+                        <img src="https://images.joseartgallery.com/content/_13677-1704828981-thumb800.jpg" alt="Hieronymus Bosch">
+                        <span class="overlay">Hieronymus Bosch</span>
                     </div>
 
-                    <div class="item" data-name="Pop Art" data-type="genero" data-link="https://www.pinterest.com/search/pins/?q=pop%20art" data-artist="Andy Warhol" data-genre="Arte Pop">
-                        <img src="https://i.pinimg.com/736x/60/9d/8a/609d8a40e39d8e73615368e28a1cdeba.jpg" alt="Pop Art">
-                        <span class="overlay">
-                            <span class="overlay-title">Pop Art</span>
-                            <span class="overlay-artist">Autor: Andy Warhol</span>
-                            <span class="overlay-genre">Género: Arte Pop</span>
-                        </span>
+                    <div class="item" data-name="Salvador Dalí" data-type="autor" data-link="https://es.wikipedia.org/wiki/Salvador_Dal%C3%AD">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSG7N0GYxFrvBTRy45lrpq4TvG-2id9O4480Q&s" alt="Salvador Dalí">
+                        <span class="overlay">Salvador Dalí</span>
                     </div>
-                    
+
+                </div>
+
+            </section>
+
                 </div>
             </section>
+
+            <section id="buscar-section" class="hidden">
+                <h2 class="section-title">Buscar</h2>
+
+                <p id="no-results" class="hidden">No se encontraron resultados.</p>
+
+                <div class="results-grid"></div>
+
+                <button id="volver-inicio" class="volver-btn">Volver a Inicio</button>
+            </section>
         </main>
+
     </div>
 
-    <footer class="footer">
-        <!-- Footer content here -->
+   <footer class="footer">
+        <div class="footer-container">
+            <div>
+                <h2 class="footer-logo">My Art</h2>
+                <p>Síguenos:</p>
+                <div class="footer-socials">
+                    <a href="#" class="social-circle">F</a>
+                    <a href="#" class="social-circle">X</a>
+                    <a href="#" class="social-circle">IG</a>
+                    <a href="#" class="social-circle">YT</a>
+                </div>
+            </div>
+
+            <div>
+                <h3>Secciones</h3>
+                <a href="#">Realismo</a>
+                <a href="#">Gótico</a>
+                <a href="#">Erótico</a>
+                <a href="#">Renacimiento</a>
+                <a href="#">Grotesco</a>
+                <a href="#">Surrealismo</a>
+            </div>
+
+            <div>
+                <h3>Contacto</h3>
+                <a href="#">Soporte</a>
+                <a href="#">Consultas</a>
+            </div>
+
+            <div>
+                <h3>Legales</h3>
+                <a href="#">Términos</a>
+                <a href="#">Privacidad</a>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>© 2025 My Art. Todos los derechos reservados.</p>
+        </div>
     </footer>
 
     <script src="script.js"></script>
