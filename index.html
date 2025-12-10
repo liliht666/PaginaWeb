@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -9,14 +9,7 @@
 </head>
 <body>
 
-    <!-- MENÚ LATERAL -->
-    <aside class="sidebar">
-        <h2>Menú</h2>
-        <button onclick="mostrarGeneros()">Géneros</button>
-        <button onclick="mostrarArtistas()">Autores</button>
-        <button>Inicio</button>
-        <button id="perfil-btn" onclick="mostrarLogin()">Mi Perfil</button>
-    </aside>
+    <div class="layout">
 
         <!-- Barra lateral -->
         <aside class="sidebar">
@@ -26,22 +19,6 @@
                 <p class="sidebar-section">Descubrir</p>
                 <button class="side-btn" id="btn-inicio">Inicio</button>
                 <button class="side-btn" id="btn-buscar">Buscar</button>
-    <!-- BARRA SUPERIOR -->
-    <header class="topbar">
-        <input type="text" placeholder="Buscar..." class="buscar">
-        <button onclick="mostrarLogin()">Perfil</button>
-        <button>Ajustes</button>
-        <button>Avisos</button>
-    </header>
-
-    <!-- CONTENIDO PRINCIPAL -->
-    <main class="contenido">
-        <h1 class="titulo">My Art</h1>
-
-                <p class="sidebar-section">Descubrir</p>
-                <button class="side-btn" id="btn-inicio">Inicio</button>
-                <button class="side-btn" id="btn-buscar">Buscar</button>
-            
 
                 <p class="sidebar-section">Configuración</p>
                 <button class="side-btn" id="btn-perfil">Perfil</button>
@@ -49,67 +26,15 @@
                 <button class="side-btn hidden" id="btn-signup">Sign Up</button>
             </nav>
         </aside>
-<!-- PERFIL -->
-<section id="perfil-section" class="hidden">
-    <h2 class="section-title">Mi Perfil</h2>
-
-    <!-- CONTENEDOR LOGIN -->
-    <div id="login-container">
-
-        <h3>Iniciar Sesión</h3>
-
-        <input type="email" id="login-email" placeholder="Correo electrónico">
-        <input type="password" id="login-password" placeholder="Contraseña">
-
-        <button id="login-btn" class="top-btn">Entrar</button>
-
-        <div class="separator">o</div>
-
-        <!-- GOOGLE BUTTON -->
-        <div id="google-login"></div>
-
-        <p class="change-form">
-            ¿No tienes cuenta?
-            <span id="go-signup">Crear una cuenta</span>
-        </p>
-    </div>
-
-    <!-- CONTENEDOR SIGN UP -->
-    <div id="signup-container" class="hidden">
-
-        <h3>Crear Cuenta</h3>
-
-        <input type="text" id="signup-name" placeholder="Nombre">
-        <input type="email" id="signup-email" placeholder="Correo electrónico">
-        <input type="password" id="signup-password" placeholder="Contraseña">
-
-        <button id="signup-btn" class="top-btn">Registrar</button>
-
-        <p class="change-form">
-            ¿Ya tienes cuenta?
-            <span id="go-login">Inicia sesión</span>
-        </p>
-    </div>
-
-    <button id="volver-inicio2" class="volver-btn">Volver</button>
-</section>
-
-<script src="https://accounts.google.com/gsi/client" async defer></script>
 
         <!-- Contenido principal -->
         <main class="content">
             <section id="inicio-section">
                 <h1 class="section-title">Géneros Artísticos</h1>
 
-    
-
-            
-            <section id="inicio-section">
-
-                <h1 class="section-title">Géneros</h1>
-
                 <div class="genres-grid">
 
+                    <!-- Géneros y autores -->
                     <div class="item" data-name="Realismo" data-type="genero" data-link="https://www.pinterest.com/search/pins/?q=realismo" data-artist="Edward Hopper" data-genre="Pintura Realista">
                         <img src="https://i.pinimg.com/736x/40/23/e8/4023e8ee1acb614be84d9668620a87ff.jpg" alt="Realismo">
                         <span class="overlay">
@@ -128,101 +53,106 @@
                         </span>
                     </div>
 
-                    <!-- Agregar más elementos según sea necesario -->
+                    <div class="item" data-name="Erótico" data-type="genero" data-link="https://www.pinterest.com/search/pins/?q=arte%20erótico" data-artist="Egon Schiele" data-genre="Arte Erótico">
+                        <img src="https://i.pinimg.com/736x/b0/2d/18/b02d187ff98c0e50ffc2d2750014f357.jpg" alt="Erótico">
+                        <span class="overlay">
+                            <span class="overlay-title">Erótico</span>
+                            <span class="overlay-artist">Autor: Egon Schiele</span>
+                            <span class="overlay-genre">Género: Arte Erótico</span>
+                        </span>
+                    </div>
 
+                    <div class="item" data-name="Renacimiento" data-type="genero" data-link="https://www.pinterest.com/search/pins/?q=renacimiento%20arte" data-artist="Sandro Botticelli" data-genre="Pintura Renacentista">
+                        <img src="https://i.pinimg.com/736x/4c/ec/f7/4cecf73c876af31dfa603d43d3a52034.jpg" alt="Renacimiento">
+                        <span class="overlay">
+                            <span class="overlay-title">Renacimiento</span>
+                            <span class="overlay-artist">Autor: Sandro Botticelli</span>
+                            <span class="overlay-genre">Género: Pintura Renacentista</span>
+                        </span>
+                    </div>
+
+                    <div class="item" data-name="Grotesco" data-type="genero" data-link="https://www.pinterest.com/search/pins/?q=arte%20grotesco" data-artist="Hieronymus Bosch" data-genre="Arte Grotesco">
+                        <img src="https://i.pinimg.com/736x/a7/02/43/a70243c38de9c0335ad79154669d7195.jpg" alt="Grotesco">
+                        <span class="overlay">
+                            <span class="overlay-title">Grotesco</span>
+                            <span class="overlay-artist">Autor: Hieronymus Bosch</span>
+                            <span class="overlay-genre">Género: Arte Grotesco</span>
+                        </span>
+                    </div>
+
+                    <div class="item" data-name="Surrealismo" data-type="genero" data-link="https://www.pinterest.com/search/pins/?q=surrealismo%20arte" data-artist="Salvador Dalí" data-genre="Arte Surrealista">
+                        <img src="https://i.pinimg.com/1200x/cf/87/9b/cf879b36b82d5c2de53fef29808aa53e.jpg" alt="Surrealismo">
+                        <span class="overlay">
+                            <span class="overlay-title">Surrealismo</span>
+                            <span class="overlay-artist">Autor: Salvador Dalí</span>
+                            <span class="overlay-genre">Género: Arte Surrealista</span>
+                        </span>
+                    </div>
+
+                    <!-- Otros géneros y autores -->
+                    <div class="item" data-name="Impresionismo" data-type="genero" data-link="https://www.pinterest.com/search/pins/?q=impresionismo" data-artist="Claude Monet" data-genre="Pintura Impresionista">
+                        <img src="https://i.pinimg.com/736x/1f/ba/3b/1fba3b1fcb1e0598c3f5d69bb493af6e.jpg" alt="Impresionismo">
+                        <span class="overlay">
+                            <span class="overlay-title">Impresionismo</span>
+                            <span class="overlay-artist">Autor: Claude Monet</span>
+                            <span class="overlay-genre">Género: Pintura Impresionista</span>
+                        </span>
+                    </div>
+
+                    <div class="item" data-name="Cubismo" data-type="genero" data-link="https://www.pinterest.com/search/pins/?q=cubismo" data-artist="Pablo Picasso" data-genre="Pintura Cubista">
+                        <img src="https://i.pinimg.com/736x/56/58/29/565829c0f15e925eaebcf40ea3da4311.jpg" alt="Cubismo">
+                        <span class="overlay">
+                            <span class="overlay-title">Cubismo</span>
+                            <span class="overlay-artist">Autor: Pablo Picasso</span>
+                            <span class="overlay-genre">Género: Pintura Cubista</span>
+                        </span>
+                    </div>
+
+                    <div class="item" data-name="Expresionismo" data-type="genero" data-link="https://www.pinterest.com/search/pins/?q=expresionismo" data-artist="Edvard Munch" data-genre="Arte Expresionista">
+                        <img src="https://i.pinimg.com/736x/8b/5a/1f/8b5a1f6e4d3990d357bcf4f0d6c602b7.jpg" alt="Expresionismo">
+                        <span class="overlay">
+                            <span class="overlay-title">Expresionismo</span>
+                            <span class="overlay-artist">Autor: Edvard Munch</span>
+                            <span class="overlay-genre">Género: Arte Expresionista</span>
+                        </span>
+                    </div>
+
+                    <div class="item" data-name="Art Nouveau" data-type="genero" data-link="https://www.pinterest.com/search/pins/?q=art%20nouveau" data-artist="Alphonse Mucha" data-genre="Arte Nouveau">
+                        <img src="https://i.pinimg.com/736x/66/84/a2/6684a23c9d5f02d43d6e400bfcdecb35.jpg" alt="Art Nouveau">
+                        <span class="overlay">
+                            <span class="overlay-title">Art Nouveau</span>
+                            <span class="overlay-artist">Autor: Alphonse Mucha</span>
+                            <span class="overlay-genre">Género: Arte Nouveau</span>
+                        </span>
+                    </div>
+
+                    <div class="item" data-name="Futurismo" data-type="genero" data-link="https://www.pinterest.com/search/pins/?q=futurismo" data-artist="Giacomo Balla" data-genre="Arte Futurista">
+                        <img src="https://i.pinimg.com/736x/66/84/a2/6684a23c9d5f02d43d6e400bfcdecb35.jpg" alt="Futurismo">
+                        <span class="overlay">
+                            <span class="overlay-title">Futurismo</span>
+                            <span class="overlay-artist">Autor: Giacomo Balla</span>
+                            <span class="overlay-genre">Género: Arte Futurista</span>
+                        </span>
+                    </div>
+
+                    <div class="item" data-name="Pop Art" data-type="genero" data-link="https://www.pinterest.com/search/pins/?q=pop%20art" data-artist="Andy Warhol" data-genre="Arte Pop">
+                        <img src="https://i.pinimg.com/736x/60/9d/8a/609d8a40e39d8e73615368e28a1cdeba.jpg" alt="Pop Art">
+                        <span class="overlay">
+                            <span class="overlay-title">Pop Art</span>
+                            <span class="overlay-artist">Autor: Andy Warhol</span>
+                            <span class="overlay-genre">Género: Arte Pop</span>
+                        </span>
+                    </div>
+                    
                 </div>
-
-
-                <h1 class="section-title">Autores</h1>
-
-        <!-- GRID DE GÉNEROS -->
-        <section id="grid-generos" class="grid"></section>
-
-        <!-- GRID DE ARTISTAS -->
-        <section id="grid-artistas" class="grid"></section>
-
-        <!-- MODAL DE LOGIN / SIGNUP -->
-        <div id="auth-modal" class="auth-modal">
-            <div class="auth-modal-content">
-                <span id="close-modal" class="close">&times;</span>
-                <h2>Iniciar sesión / Registrarse</h2>
-                
-
-                <h1 class="section-title">Artistas</h1>
-
-                <div class="authors-grid">
-                    <!-- Agregar autores aquí -->
-                </div>
-
-            </section>
-
-            <section id="buscar-section" class="hidden">
-                <h2 class="section-title">Buscar</h2>
-                <input type="text" id="searchBar" placeholder="Buscar géneros o autores...">
-                <p id="no-results" class="hidden">No se encontraron resultados.</p>
-                <div class="results-grid"></div>
-                <button id="volver-inicio" class="volver-btn">Volver a Inicio</button>
             </section>
         </main>
-
     </div>
 
-
-    
     <footer class="footer">
-        <div class="footer-container">
-            <div>
-                <h2 class="footer-logo">My Art</h2>
-                <p>Síguenos:</p>
-                <div class="footer-socials">
-                    <a href="#" class="social-circle">F</a>
-                    <a href="#" class="social-circle">X</a>
-                    <a href="#" class="social-circle">IG</a>
-                    <a href="#" class="social-circle">YT</a>
-
-                <!-- Login form -->
-                <div id="login-form" class="auth-form">
-                    <input type="email" id="login-email" placeholder="Correo electrónico" required />
-                    <input type="password" id="login-password" placeholder="Contraseña" required />
-                    <button id="login-btn" onclick="login()">Iniciar sesión</button>
-                    <p>No tienes cuenta? <a href="javascript:void(0);" onclick="mostrarSignup()">Registrarse</a></p>
-                    <button id="google-login-btn" onclick="loginWithGoogle()">Iniciar sesión con Google</button>
-                </div>
-
-                <!-- Sign-up form -->
-                <div id="signup-form" class="auth-form" style="display: none;">
-                    <input type="text" id="signup-firstname" placeholder="Nombre" required />
-                    <input type="text" id="signup-lastname" placeholder="Apellido" required />
-                    <input type="email" id="signup-email" placeholder="Correo electrónico" required />
-                    <input type="number" id="signup-birthyear" placeholder="Año de nacimiento" required />
-                    <input type="password" id="signup-password" placeholder="Contraseña" required />
-                    <button id="signup-btn" onclick="signup()">Registrarse</button>
-                    <p>¿Ya tienes cuenta? <a href="javascript:void(0);" onclick="mostrarLogin()">Iniciar sesión</a></p>
-
-                </div>
-            </div>
-        </div>
-    </main>
-
-    <!-- FOOTER -->
-    <footer class="footer">
-        <div class="footer-section">
-            <h3>Contacto</h3>
-            <p>Email: contacto@myart.com</p>
-            <p>Teléfono: 123-456-7890</p>
-        </div>
-        <div class="footer-section">
-            <h3>Licencia</h3>
-            <p>Este sitio web es para fines educativos y está bajo una licencia Creative Commons.</p>
-        </div>
-        <div class="footer-section">
-            <h3>Términos y Condiciones</h3>
-            <p><a href="#">Ver términos y condiciones</a></p>
-        </div>
+        <!-- Footer content here -->
     </footer>
 
     <script src="script.js"></script>
-
-    <script src="https://apis.google.com/js/platform.js" async defer></script>
 </body>
 </html>
