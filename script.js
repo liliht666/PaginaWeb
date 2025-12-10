@@ -1,75 +1,113 @@
-const btnInicio = document.getElementById("btn-inicio");
-const btnBuscar = document.getElementById("btn-buscar");
-const inicioSection = document.getElementById("inicio-section");
-const buscarSection = document.getElementById("buscar-section");
-const volverInicio = document.getElementById("volver-inicio");
-const searchBar = document.getElementById("searchBar");
-const resultsGrid = document.querySelector(".results-grid");
-const noResults = document.getElementById("no-results");
-const items = document.querySelectorAll(".item");
+const API_KEY = "xyqlVVeR86yygyGuvDvVYbGIux9LXPj6wF8oHx8C5kNP3EqLLyPdtrjo";
+const API_URL = "https://api.pexels.com/v1/search";
 
-btnInicio.addEventListener("click", () => {
-    inicioSection.classList.remove("hidden");
-    buscarSection.classList.add("hidden");
-    searchBar.value = "";
-});
+// Listas base para géneros y artistas
+const generos = [
+    "Impresionismo", "Cubismo", "Arte Digital", "Surrealismo",
+    "Realismo", "Barroco", "Futurismo", "Abstracto",
+    "Romanticismo", "Gótico", "Renacimiento", "Expresionismo"
+];
 
-btnBuscar.addEventListener("click", () => {
-    inicioSection.classList.add("hidden");
-    buscarSection.classList.remove("hidden");
-    populateResults(); 
-});
+const artistas = [
+    "Vincent van Gogh", "Pablo Picasso", "Claude Monet", "Salvador Dalí",
+    "Frida Kahlo", "Rembrandt", "Leonardo da Vinci", "Gustav Klimt"
+];
 
-volverInicio.addEventListener("click", () => {
-    inicioSection.classList.remove("hidden");
-    buscarSection.classList.add("hidden");
-    searchBar.value = "";
-});
+// Funciones de carga
+function cargarGeneros() {
+    const cont = document.getElementById("grid-generos");
+    cont.innerHTML = "";
 
-function populateResults() {
-    resultsGrid.innerHTML = "";
-    items.forEach(item => {
-        const clone = item.cloneNode(true);
-        clone.addEventListener("click", () => {
-            const link = clone.getAttribute("data-link");
-            if (link) window.open(link, "_blank");
+    generos.slice(0, 35).forEach(nombre => {
+        solicitarImagen(nombre, url => {
+            cont.innerHTML += `
+                <div class="item">
+                    <img src="${url}">
+                    <p class="label">${nombre}</p>
+                </div>
+            `;
         });
-        resultsGrid.appendChild(clone);
     });
-    noResults.classList.add("hidden");
 }
 
-searchBar.addEventListener("keyup", () => {
-    const filter = searchBar.value.toLowerCase();
-    let coincidencias = 0;
-    resultsGrid.innerHTML = "";
+function cargarArtistas() {
+    const cont = document.getElementById("grid-artistas");
+    cont.innerHTML = "";
 
-    items.forEach(item => {
-        const name = item.getAttribute("data-name").toLowerCase();
-        if (name.includes(filter)) {
-            coincidencias++;
-            const clone = item.cloneNode(true);
-            clone.addEventListener("click", () => {
-                const link = clone.getAttribute("data-link");
-                if (link) window.open(link, "_blank");
-            });
-            resultsGrid.appendChild(clone);
+    artistas.slice(0, 35).forEach(nombre => {
+        solicitarImagen(nombre, url => {
+            cont.innerHTML += `
+                <div class="item">
+                    <img src="${url}">
+                    <p class="label">${nombre}</p>
+                </div>
+            `;
+        });
+    });
+}
+
+// Solicitar imágenes desde Pexels
+function solicitarImagen(termino, callback) {
+    fetch(`${API_URL}?query=${encodeURIComponent(termino)}&per_page=1`, {
+        headers: { Authorization: API_KEY }
+    })
+    .then(r => r.json())
+    .then(data => {
+        if (data.photos.length > 0) {
+            callback(data.photos[0].src.medium);
+        } else {
+            callback("img/no-disponible.jpg");
         }
     });
+}
 
-    if (coincidencias === 0) {
-        noResults.classList.remove("hidden");
-    } else {
-        noResults.classList.add("hidden");
-    }
-});
+// Modal de Login/Signup
+function mostrarLogin() {
+    document.getElementById("auth-modal").style.display = 'flex';
+    document.getElementById("signup-form").style.display = 'none';
+    document.getElementById("login-form").style.display = 'block';
+}
 
-items.forEach(item => {
-    item.addEventListener("click", () => {
-        const link = item.getAttribute("data-link");
-        if (link) window.open(link, "_blank");
+document.getElementById("close-modal").onclick = () => {
+    document.getElementById("auth-modal").style.display = 'none';
+};
+
+// Login con Google
+function loginWithGoogle() {
+    gapi.auth2.getAuthInstance().signIn().then((googleUser) => {
+        const profile = googleUser.getBasicProfile();
+        alert('Bienvenido, ' + profile.getName());
     });
+}
+
+// Lógica de Login y Signup
+function signup() {
+    const firstname = document.getElementById("signup-firstname").value;
+    const lastname = document.getElementById("signup-lastname").value;
+    const email = document.getElementById("signup-email").value;
+    const birthyear = document.getElementById("signup-birthyear").value;
+    const password = document.getElementById("signup-password").value;
+
+    alert("Registro exitoso!");
+}
+
+function login() {
+    const email = document.getElementById("login-email").value;
+    const password = document.getElementById("login-password").value;
+
+    alert("Bienvenido de nuevo!");
+}
+
+function mostrarSignup() {
+    document.getElementById("login-form").style.display = 'none';
+    document.getElementById("signup-form").style.display = 'block';
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+    cargarGeneros();
+    cargarArtistas();
 });
+
 // Elementos Perfil
 const btnPerfil = document.getElementById("btn-perfil");
 const perfilSection = document.getElementById("perfil-section");
